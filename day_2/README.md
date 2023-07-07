@@ -1,4 +1,4 @@
-**DATE 06/07/2023**
+**DATE - 06/07/2023**
 
 - Begin by creating variables out of rows and columns in CSV file
 
