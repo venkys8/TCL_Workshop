@@ -1,3 +1,5 @@
+**Date - 04/07/2023**
+
 * The .sdc file need to be converted to .timing format which is understood by openTimer which is responsible to create the performance chart as shown in the briefing.
 
 * tcsh is used to build the UI, it also processes the .csv file.
