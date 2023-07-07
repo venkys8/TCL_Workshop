@@ -14,7 +14,7 @@
 
 
 
-2. Designer gives RTL, we need to automate it. Read the library, all netlists, hierarchical check and gives output ( synthesized netlist )
+2. Designer gives RTL, we automate it. Read the library, all netlists, hierarchical check and gives output ( synthesized netlist )
 
        
       
