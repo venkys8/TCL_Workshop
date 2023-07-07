@@ -9,6 +9,7 @@
 
 A] Memory module RTL description. Output of synthesis box -
 
-      ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/0c6d8179-ad3f-47d8-b89b-3d47d2e972ba)
+     ![Alt text](![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/8d11cff3-2cc5-4180-bc78-964c9a9768fb))
+
 
 
