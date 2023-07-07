@@ -16,7 +16,25 @@
 
 2. Designer gives RTL, we automate it. Read the library, all netlists, hierarchical check and gives output ( synthesized netlist )
 
-       
+      ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b5b3405f-a273-4564-b4ab-f6a345475304)
+
+
+- creating hierarchy. creating file with read_verilog appended;
+
+        ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/18cf62da-90e9-40a3-bfab-f9113a3cb18f)
+
+        ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/96fa2b27-fd78-4b88-893c-c34a4246cae7)
+
+3. Error handling for hierarchy check. Modified name of a module in top module and error is thrown in hierarchy log file
+
+         ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
+
+ 
+                
+
+
+  
+
       
 
 
