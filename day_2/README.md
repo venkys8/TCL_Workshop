@@ -6,7 +6,7 @@
 
 - [file normalize $m_arr(1,$i)]. $m_arr(1,$i) represents a file/path. After file normalize we get absolute path. '~'/ extra variables get removed
 
-* Sample outputs for script ( script is updated continuosly over a period of 5 days)
+* Sample outputs for script ( script is updated continuosuly over a period of 5 days)
     1. Assign paths/file name to created variables
 
         ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/03d1c179-8083-400f-9379-611e548c7747)
