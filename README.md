@@ -1,4 +1,8 @@
 # VSD-TCL_Workshop
+***Author: Venkatesh Iyer***
+
+***Acknowledgement: TCL Workshop by [Mr. Kunal Ghosh](https://github.com/kunalg123) , [VLSI System Design](https://www.vlsisystemdesign.com/)***
+
 BRIEFING -
 
 Input is a .csv file which contains path for design_constraints.csv, outputDirectory path, netlist paths, library paths etc along with the designName. 
