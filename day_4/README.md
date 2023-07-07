@@ -29,6 +29,18 @@
 
       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
 
+
+4.  No errors in hierarchy
+
+      ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b4f4b78e-cd0f-4ecb-9fd1-6729b434b5ce)
+
+
+5. introduce error in module name and check for error in hierarchy
+
+      ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/e18c1532-2b38-4b88-a9b5-ecee3aa509c5)
+
+
+
  
                 
 
