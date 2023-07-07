@@ -3,7 +3,7 @@
 
 ***Acknowledgement: TCL Workshop by [Mr. Kunal Ghosh](https://github.com/kunalg123) , [VLSI System Design](https://www.vlsisystemdesign.com/)***
 
-BRIEFING -
+**BRIEFING -**
 
 Input is a .csv file which contains path for design_constraints.csv, outputDirectory path, netlist paths, library paths etc along with the designName. 
 Our task is to take these inputs, parse the file and come up with .sdc file, and also give out the the datasheet like a characteristics of the input .csv provided. 
