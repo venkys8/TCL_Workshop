@@ -164,4 +164,28 @@ Further details of the steps and lab outputs are recorded in each corresponding 
         ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/28cc3e50-56ba-444e-9651-c4045d6cbecd)
 
 
+## **DAY_5, Date - 08/07/2023 - __/07/2023**
+
+ 1. Synthesis successful
+
+        ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/49885c25-9ba5-4025-a68a-0fa813ce6747)
+
+ 2. get final .synth.v, after clean-up to be used by opentimer
+
+       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b22e4395-f59e-4fae-be80-e6c7c2a58055)
+    
+
+	![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/98b2c423-d833-4e52-8273-0dbff7c9d907)
+
+ 4. Procs:
+
+       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/5a48082e-30d8-48d1-bb04-1c458990c368)
+
+       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/6273fb0e-6e51-4fc5-82bb-3495a63859f1)
+
+
+    	
+
+
+
 
