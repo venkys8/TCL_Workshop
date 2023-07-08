@@ -1,25 +1,26 @@
-**Read below instructions to run "vsdsynth" on your machine**
 
-1) Make sure you install "opentimer" and "yosys" opensource EDA tools before running "vsdsynth". Installation detail video can be found in below link:
-https://www.udemy.com/vsd-a-complete-guide-to-install-open-source-eda-tools/ (FREE course)
+## Read below instructions to run "vsdsynth" on your machine ##
 
-2) Once you install all necessary tools from above links, use the below command to run "vsdsynth" (also shown in TCL Programming Part 1 & Part 2 courses)
-./vsdsynth openMSP430_design_details.csv 
+  1) Make sure you install "opentimer" and "yosys" opensource EDA tools before running "vsdsynth". Installation detail video can be found in below link:
+  https://www.udemy.com/vsd-a-complete-guide-to-install-open-source-eda-tools/ (FREE course)
 
-3) In order to run test.tcl, step no. 2) must be run atleast once. 
+  2) Once you install all necessary tools from above links, use the below command to run "vsdsynth" (also shown in TCL Programming Part 1 & Part 2 courses)
+  ./vsdsynth openMSP430_design_details.csv 
 
-NOTE : test.tcl is to verify and understand read_sdc.proc
+  3) In order to run test.tcl, step no. 2) must be run atleast once. 
 
-NOTE : If you want to understand what does "vsdsynth" do, please enroll in below TCL Programming courses:
+  NOTE : test.tcl is to verify and understand read_sdc.proc
 
-TCL programming - Part 1:
-https://www.udemy.com/vsd-tcl-programming-from-novice-to-expert/
+  NOTE : If you want to understand what does "vsdsynth" do, please enroll in below TCL Programming courses:
 
-TCL programming - Part 2:
-https://www.udemy.com/vsd-tcl-programming-from-novice-to-expert-part-2/
+  TCL programming - Part 1:
+  https://www.udemy.com/vsd-tcl-programming-from-novice-to-expert/
 
-#---------------------------------------------------------------------#
-"vsdsynth" is Developed and Maintained by VLSI System Design Corporation Pvt. Ltd.
-For any queries and bugs, please drop a mail to kunalpghosh@gmail.com
-#---------------------------------------------------------------------#
+  TCL programming - Part 2:
+  https://www.udemy.com/vsd-tcl-programming-from-novice-to-expert-part-2/
+
+  #---------------------------------------------------------------------#
+  "vsdsynth" is Developed and Maintained by VLSI System Design Corporation Pvt. Ltd.
+  For any queries and bugs, please drop a mail to kunalpghosh@gmail.com
+  #---------------------------------------------------------------------#
 
