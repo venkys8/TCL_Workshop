@@ -149,7 +149,7 @@ Further details of the steps and lab outputs are recorded in each corresponding 
 
   3. Error handling for hierarchy check. Modified name of a module in top module and error is thrown in hierarchy log file
 
-         ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
+     	 ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
 
 
   4.  No errors in hierarchy
