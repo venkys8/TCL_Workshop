@@ -22,7 +22,13 @@ TCL programming - Part 2:
   https://www.udemy.com/vsd-tcl-programming-from-novice-to-expert-part-2/
 
 #---------------------------------------------------------------------#
+
+
 "vsdsynth" is Developed and Maintained by VLSI System Design Corporation Pvt. Ltd.
+
+
 For any queries and bugs, please drop a mail to kunalpghosh@gmail.com
+
+
 #---------------------------------------------------------------------#
 
