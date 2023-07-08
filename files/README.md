@@ -2,14 +2,17 @@
 ##Read below instructions to run "vsdsynth" on your machine 
 
 
-1) Make sure you install "opentimer" and "yosys" opensource EDA tools before running "vsdsynth". Installation detail video can be found in below link:
+1. Make sure you install "opentimer" and "yosys" opensource EDA tools before running "vsdsynth". Installation detail video can be found in below link:
 
   https://www.udemy.com/vsd-a-complete-guide-to-install-open-source-eda-tools/ (FREE course)
+  
 
-2) Once you install all necessary tools from above links, use the below command to run "vsdsynth" (also shown in TCL Programming Part 1 & Part 2 courses)
+2. Once you install all necessary tools from above links, use the below command to run "vsdsynth" (also shown in TCL Programming Part 1 & Part 2 courses)
   ./vsdsynth openMSP430_design_details.csv 
 
-3) In order to run test.tcl, step no. 2) must be run atleast once. 
+
+3. In order to run test.tcl, step no. 2) must be run atleast once. 
+
 
 NOTE : test.tcl is to verify and understand read_sdc.proc
 
