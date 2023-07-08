@@ -1,5 +1,5 @@
 
-## Read below instructions to run "vsdsynth" on your machine ##
+## Read below instructions to run "vsdsynth" on your machine 
 
   1) Make sure you install "opentimer" and "yosys" opensource EDA tools before running "vsdsynth". Installation detail video can be found in below link:
   https://www.udemy.com/vsd-a-complete-guide-to-install-open-source-eda-tools/ (FREE course)
