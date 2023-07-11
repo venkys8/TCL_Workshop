@@ -231,19 +231,14 @@ Further details of the steps and lab outputs are recorded in each corresponding 
   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/8e81f321-4485-43c1-a5c2-f57eee23451d)
 
 
+## 11. QOR (Quality of results)
 
-
-
-   
-
-
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/f2b3514d-9e86-4ee4-8153-4207299cbec5)
 
    
 
 
-
-   
-### will be updated with another iteration in coming days
+###  updated with another iterations 
 
  ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/030b700e-0385-49d4-8737-9d18850f326b)
 
@@ -257,6 +252,8 @@ Further details of the steps and lab outputs are recorded in each corresponding 
  ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/4d5549f9-f16d-4404-8bbc-d2a56ad3a414)
 
  ## FINAL 
+
+![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/5b7eb387-0515-4971-b674-b67e97e1646c)
 
  
 
