@@ -149,7 +149,7 @@ Further details of the steps and lab outputs are recorded in each corresponding 
 
   3. Error handling for hierarchy check. Modified name of a module in top module and error is thrown in hierarchy log file
 
-     	 ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
+     	![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/45328b51-133b-43f4-a47a-f9e1526196b1)
 
 
   4.  No errors in hierarchy
@@ -164,28 +164,102 @@ Further details of the steps and lab outputs are recorded in each corresponding 
         ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/28cc3e50-56ba-444e-9651-c4045d6cbecd)
 
 
-## **DAY_5, Date - 08/07/2023 - __/07/2023**
+## **DAY_5, Date - 08/07/2023 - 11/07/2023**
 
- 1. Synthesis successful
+## 1. Synthesis successful
 
-        ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/49885c25-9ba5-4025-a68a-0fa813ce6747)
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/49885c25-9ba5-4025-a68a-0fa813ce6747)
 
- 2. get final .synth.v, after clean-up to be used by opentimer
+## 2. get final .synth.v, after clean-up to be used by opentimer
 
-       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b22e4395-f59e-4fae-be80-e6c7c2a58055)
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b22e4395-f59e-4fae-be80-e6c7c2a58055)
     
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/98b2c423-d833-4e52-8273-0dbff7c9d907)
 
-	![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/98b2c423-d833-4e52-8273-0dbff7c9d907)
+ ## 4. Procs:
 
- 4. Procs:
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/5a48082e-30d8-48d1-bb04-1c458990c368)
 
-       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/5a48082e-30d8-48d1-bb04-1c458990c368)
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/6273fb0e-6e51-4fc5-82bb-3495a63859f1)
 
-       ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/6273fb0e-6e51-4fc5-82bb-3495a63859f1)
+ ## 5. Create .timing file, replace square brackets by 'null'; eval clk period and port name from processed SDC file; eval duty cycle & create clk in openTimer format(till 	converting create_clock constraints in /proc/read_proc.sdc)
 
- ### will be updated with another iteration in coming days
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/7c3bb640-1635-448c-a787-48b0d4f4afce)
+
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/263bfe3b-aac0-4c91-8739-931987301433)
+
+## 6. clock latency and port name from SDC file
+
+   we have in SDC file : set_clock_latency -source -early -rise 150 get_clocks dco_clk
+
+   In openTimer format,we need to have like this : at dco_clk 150 151 152 153
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b730a44e-2cd1-44a2-9c67-ab351190dadb)
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b878d589-4dbe-48a0-a1f6-e72f2fc693ea)
+
+
+## 7. clock_transition & input delay to openTimer format
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/c3231f84-9a24-4bb5-8c71-1d5369d48719)
+
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/c1bb3428-0c4b-4737-bbc0-569501352fc9)
+
+## 8. Output delay constraints to openTimer format
+
+   at : arrival time ; rat : required arrival time ; equivalent command of set_load in openTimer is load
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/270acf0c-a559-47c1-a6b9-7fc37f879989)
+
+## 9. We have bussed ports in /tmp/3 ; Bussed ports to be expanded based on final synthesized netlist (to find out how many bits the * gets expanded into) ;
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/76e6997e-73ae-4a47-97d7-e2f38825b6be)
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/1a0597a2-fe77-4e8e-96f8-ab268f4f0f21)
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/d2c25dfd-9104-4792-a0f3-1558a450aaaa)
+
+   .conf file is needed for running the openTimer, it is used as input
+
+
+## 10. master file suppied to openTimer -> .conf file
+
+   ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/2c680a64-a8e6-4113-8404-b74f9b61cf37)
+
+  ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/8e81f321-4485-43c1-a5c2-f57eee23451d)
+
+
+
+
+
+   
+
+
+
+   
+
+
+
+   
+### will be updated with another iteration in coming days
 
  ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/030b700e-0385-49d4-8737-9d18850f326b)
+
+
+ ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/b92aa1e2-55a9-4bdd-b31f-a6129bb02c0f)
+
+
+ ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/1059784a-88ca-4378-b3da-20c374cc067b)
+ 
+
+ ![image](https://github.com/venkys8/VSD-TCL_Workshop/assets/138795338/4d5549f9-f16d-4404-8bbc-d2a56ad3a414)
+
+ ## FINAL 
+
+ 
+
 
 
 
