@@ -1,0 +1,209 @@
+#DAY 1, Session_1 : 4/7/23
+------------------------------------------------------------------------------------------------------------
+
+o https://github.com/Visruat/VSD-TCL -> link to create a Github repo, in this fashion
+
+o TCL_D1_SK1 L0 - Introduction to TCL task
+------------------------------------------
+
+1. design_details.csv file is the input to TCL box and try to dump out the output in various format.
+- we checked the .csv file, opened with libreoffice. Run with ./vsdsynth <*.csv file name>
+- gives out pre-layout timing results in a format, datasheet kind of a result.
+
+o TCL_D1_SK1 L1 - Introduction to sub-task
+------------------------------------------
+
+1. ls -lrt in ~/vsdsynth/ to view .csv file(openMSP430_design_details.csv)
+	- we need to create vsdsynth command so that it takes the .csv input from UNIX shell to TCL script
+	- convert all inputs to format[1] & SDC format, and pass to synthesis tool 'yosys'
+	- convert format[1] & SDC to format[2] and pass to timing tool 'opentimer'
+	- generate output report
+
+o TCL_D1_SK2 L1 - Scenario 1 - User doesn't provide an input CSV file
+A] we need to prompt the user that you did not provide a .csv file
+B] or they provided a .csv file which does not exist
+C] ./vsdsynth -help; #to find out usage
+
+A]
+- ./vsdsynth { } { };
+- above are args. $#argv tells number of arguments(count of argv). $argv[1], $argv[2].
+
+-> if($#argv != 1) then
+	echo "Info: Please provide the csv file"
+	exit 1
+   endif
+
+- open gvim vsdsynth, type all the display commands using echo.
+- use => #!/bin/tcsh -f at the start of the file. This is to understand that it is a shell script
+- now in process of creating the vsdsynth command. changed permission for/tcl_workshop/ to -rwx-
+- now permission denied error is not coming and we are able to run ./vsdsynth command
+
+------------------------------------------------------------------------------------------------------------
+#Session_2 : 5/7/23
+----------------------
+o TCL_D1_SK2 L2 - Scenarios 2 & 3 : User providing incorrect CSV or typing "-help" 
+----------------------------------------------------------------------------------
+B,C]
+- updating script for 2nd and 3rd scenario. Updated for where we provide .csv but it cannoot find, now onto "-help" part
+- now if the user enters the correct .csv file then we have that condition also coded in the script(yet to update as of now)
+- with this DAY 1 is completed.
+------------------------------------------------------------------------------------------------------------
+
+#DAY 2, Session_3 : 5/7/23 Variable creation and processing constraints from CSV  
+--------------------------------------------------------------------------------
+o TCL_D2_SK1 L1 - Various tasks involved in format conversion
+-------------------------------------------------------------
+- we will see : convert all inputs to format[1] & SDC format & pass to synthesis tool 'yosys'
+- Tasks involved to achieve this :
+	a] create variables
+	b] check if directories and files mentioned in .csv,exists or not
+	c] read "constraints file" for above .csv and convert to SDC format
+	d] read all files in "netlist directory"
+	e] create main synthesis script in format[2]
+	f] pass this script to yosys
+- Install yosys tool and Opentimer from the link provided in README
+- this is no longer needed as per sync-up call on 5/7/23, 8pm. the ubuntu virtual box contains all setup 
+
+
+---------------------------------------------------------------
+o TCL_D2_SK1 L2 - Auto-create variables using matrix and arrays
+---------------------------------------------------------------
+- vsdsynth(it is a shell script) is different from vsdsynth.tcl(tcl script that we have created and call inside shell script)
+- $argv[1] is the argument(openMSP430_design_details.csv)
+- set filename [lindex $argv 0]. The design.csv file can be visualised as a matrix i.e, 2x6(2 rows and 6 columns), which can further be visualised as an
+array(see image saved for picture representation)
+- $my_arr(0,0) = Design Name. map " " to "" in $my_arr(0,0). Design Name -> DesignName.
+- set DesignName $my_arr(1,0) will map openMSP430 to DesignName
+
+
+----------------------------------------------------------------------
+o TCL_D2_SK1 L3 - Initialize variables for autocreation variables task
+----------------------------------------------------------------------
+-you need install packages like csv, struct::matrix in order to use csv files and declare a matrix
+- csv::read2matrix $f m ,  auto : use "," as a delimiter to find out automatically the size of the matrx which is m(2,6)
+- m link my_ar : link matrix 'm' to array 'my_arr(col,row)'
+- extractng numrows from matrix : set num_of_rows [ rows]; $num_of_rows=6;
+
+
+-----------------------------------------------------------------
+o TCL_D2_SK1 L4 - Auto creation of the first variable- DesignName 
+-----------------------------------------------------------------
+	puts "\nInfo: Setting $my_arr(0,$i) as '$my_arr(1,$i)'"
+-if{$i == 0} {
+	set [string map {" ' ""} $my_arr(0,$i)] $my_arr(1,$i)
+- we are processing the first index differently bc the first is design name, rest all rows contain path of file names
+
+
+---------------------------------------------------------
+o TCL_D2_SK1 L5 - Auto creation of the variables complete
+---------------------------------------------------------
+- iterating through further values of i = 1,2,3,4,5;
+- else{
+	set [string map {" " ""} $my_arr(0,$i)] [file normalize $my_arr(1,$i)]
+	}
+- file normalize will remove ~ or something like that and provides absolute path
+DesignName = openMSP430 
+OutputDirectory = /path/
+NetlistDirectory = /path/
+- the above will be the sample output
+
+
+--------------------------------------------------
+o TCL_D2_SK1 L6 - Variable creation DEMO using TCL
+--------------------------------------------------
+- create variables part is done
+- script working till creation of variables part
+
+---------------------------------------------------------------------------------------------
+o TCL_D2_SK2 L1 - Checking the existence of files and folders mentioned in design_details.csv
+---------------------------------------------------------------------------------------------
+- now we need to check : if directories & files mentioned in .csv exists or not
+- file isdirectory $OutputDirectory returns boolean logic 0 or 1 depending if the directory exists or not
+- for output directory, we can create an output directory but for others we cannot, the script expects right path
+else we should throw an error 
+
+
+-----------------------------------------------------------------
+o TCL_D2_SK2 L2 - Convert constraints.csv file to a matrix object
+-----------------------------------------------------------------
+- put a return statement and updated script for cheking of valid file and directories 
+- script working till checking of validity of path
+- now we need to read the constraints .csv and convert to SDC format
+- in the INPUTS column in the .csv file, certain inputs are buses and some are bits. we need to find them by going through netlist 
+correction to be taken care in script
+- again, first we need to convert the .csv file into a matrix, get the count of rows and columns
+
+--------------------------------------------------------------------
+o TCL_D2_SK2 L3 - Compute row number using complex matrix processing
+--------------------------------------------------------------------
+- we need to get row num for CLOCKS,INPUTS,OUTPUTS. each of them has their own characteristics
+
+
+------------------------------------------------
+o TCL_D2_SK2 L4 - DEMO for computing row numbers
+------------------------------------------------
+- updated till printing the number of rows and columns for constraints.csv file
+---------------------------------------------------------------------------------------------------------------
+
+###########
+#DAY 3 : Processing clock and input constraints
+###########
+
+-----------------------------------------------------------------------------------
+o TCL_D3_SK1 L1 - Algorithm to identify column number for clock latency constraints
+-----------------------------------------------------------------------------------
+- first we need to find column number for "early_rise_delay"(this remains same for other parameters also, the way to find the column number), then we need to loop while "$clock_start+1" < "input_ports_start-1"
+- explained about the command :
+set clock_early_rise_delay_start [lindex [lindex [constraints search rect $clock_start_column $clock_start [expr {$num_columns - 1}] [expr {$input_ports_start - 1}] early_rise_delay] 0] 0] -> return {3 0} //{column row}. i.e, clock_early_rise_delay_start = 3;
+- to get other parameters just replace the name in the set command
+- next we should loop
+
+
+---------------------------------------------------------------------
+o TCL_D3_SK1 L2 - Start writing clock latency constraints in SDC file
+---------------------------------------------------------------------
+- create and open a new file $DesignName.sdc in $OutputDirectory
+- explained about the command :
+puts -nonewline $sdc_file "\nset_clock_latency -source -early -rise [constraints get cell $clock_early_rise_delay_start $i] \[get_clocks [constraints get cell 0 $i]\]"
+
+
+-----------------------------------------------------------------------------
+o TCL_D3_SK1 L3 - Complete clk latency & clk skew constraints in the SDC file
+-----------------------------------------------------------------------------
+- puts -nonewline $sdc_file "\nset_clock_latency -source -early -fall [constraints get cell $clock_early_fall_delay_start $i] \[get_clocks [constraints get cell 0 $i]\]"
+- template remains same for other parameters like late_fall,late_rise, early_rsie_slew etc
+- next we need to see for frequency and duty cycle
+
+
+-----------------------------------------------------------------------------
+o TCL_D3_SK1 L4 - Code to create clk constraints with clk period & duty cycle
+-----------------------------------------------------------------------------
+- industry standard format should look like this :
+create_clock -name dco_clk -period 1500 -waveform {0 750} [get_ports dco_clk]
+- explained about command :
+puts -nonewline $sdc_file "\ncreate_clock -name [constraints get cell 0 $i] -period [constraints get cell 1 $i] -waveform \{0 [expr {[constraints get cell 1 $i]/100}]\} \[get_ports [constraints get cell 0 $i]\]"
+
+
+--------------------------------------------------------------
+o TCL_D3_SK1 L5 - DEMO for creating complete clock constraints
+--------------------------------------------------------------
+- updating script vsdsynth.tcl
+
+o differentiate between bits and bus
+-multi bit input are called buses
+- wherever we see N-bit bus, we shud put * for it, like wildcard, it needs to be taken care in script
+- first we need to restrict the search space
+- grep for signals in the*.v files. remove blank spaces, store the count in $count. if $count=2, then it is a bit signal. if $count>2, then it is a bussed signal, in that case add * at the end
+- glob command is used to match all the files with the same pattern as specified. In our case it is matching *.v in the $NetlistDirectory.
+- $fp in the foreach $fp $netlist line, will have each file that is present in $netlist. you open the file using fd, reach each line of the file using gets command. u set pattern1 as the name of input, then compare in each line to check whether it exists using regexp
+if it does , you'll split and take the 0 index term with delimiter as ";"
+now check if all lines have first term as input by removing spaces b/w them. if they do make a string s1 by removing the sapces, fnally enter these into $tmp_file while subbing multiple spaces by a single space. now close $fd
+
+
+###########################
+DAY4
+########################
+- coded memory.v, memory.ys
+- type yosys in a new tab
+- paste memory.ys , type show, you will be able to see synthesized netlist
+
